@@ -21,6 +21,8 @@ public class RecipeController {
     @Autowired
     private RecipeService recipeService;
 
+    // POST http://localhost:2019/recipes/recipe/
+    // Add a recipe to the database
     @PostMapping(value = "/recipe", consumes = "application/json")
     public ResponseEntity<?> addRecipe(
         @Valid
@@ -41,6 +43,23 @@ public class RecipeController {
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.OK);
     }
 
+
+    // PUT http://localhost:2019/recipes/recipe/{recipeid}
+    // Update specific recipe using the provided recipeid
+    @PutMapping(value = "/recipe/{recipeid}", consumes = "application/json")
+    public ResponseEntity<?> updateRecipe(
+        @PathVariable long recipeid,
+        @Valid
+        @RequestBody
+        Recipe newRecipe) {
+
+        recipeService.update(newRecipe, recipeid);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+    // DELETE http://localhost:2019/recipes/recipe/{recipeid}
+    // Delete a specific recipe using the provided recipeid
     @DeleteMapping(value = "/recipe/{recipeid}")
     public ResponseEntity<?> deleteRecipe(@PathVariable long recipeid) {
 

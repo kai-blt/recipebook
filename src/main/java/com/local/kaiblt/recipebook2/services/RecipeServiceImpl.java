@@ -66,7 +66,27 @@ public class RecipeServiceImpl implements RecipeService{
     @Transactional
     @Override
     public Recipe update(Recipe recipe, long id) {
-        return null;
+        if (reciperepos.findById(id).isPresent()) {
+            Recipe updatedRecipe = new Recipe();
+
+            updatedRecipe.setName(recipe.getName());
+            updatedRecipe.setType(recipe.getType());
+            updatedRecipe.setUser(userService.findByUsername(recipe.getUser().getUsername()));
+            updatedRecipe.setRecipeid(id);
+
+            //Add all ingredients to the recipe
+            for (Ingredient i : recipe.getIngredients()) {
+                updatedRecipe.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), updatedRecipe));
+            }
+
+            //Add all steps to the recipe
+            for (Step s : recipe.getSteps()) {
+                updatedRecipe.getSteps().add(new Step(s.getStepnumber(), s.getInstructions(), updatedRecipe));
+            }
+            return reciperepos.save(updatedRecipe);
+        } else {
+            throw new EntityNotFoundException("Recipe Not Found");
+        }
     }
 
     @Transactional
