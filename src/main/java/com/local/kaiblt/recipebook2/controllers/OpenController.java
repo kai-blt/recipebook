@@ -50,13 +50,11 @@ public class OpenController
      * @return The token access and other relevent data to token access. Status of CREATED. The location header to look up the new user.
      * @throws URISyntaxException we create some URIs during this method. If anything goes wrong with that creation, an exception is thrown.
      */
-    @PostMapping(value = "/createnewuser/{usertype}",
+    @PostMapping(value = "/createnewuser",
             consumes = {"application/json"},
             produces = {"application/json"})
     public ResponseEntity<?> addSelf(
             HttpServletRequest httpServletRequest,
-            @PathVariable
-                    String usertype,
             @Valid
             @RequestBody
                     UserMinimum newminuser)
@@ -73,19 +71,9 @@ public class OpenController
         // add the default role of user
         Set<UserRoles> newRoles = new HashSet<>();
 
-        //Create student and volunteer roles
-        UserRoles studentRole = new UserRoles(newuser, roleService.findByName("student"));
-        UserRoles volunteerRole = new UserRoles(newuser, roleService.findByName("volunteer"));
-
         //Check on path variable and add appropriate user account role
-        switch(usertype) {
-            case "student":
-                newRoles.add(studentRole);
-                break;
-            case "volunteer":
-                newRoles.add(volunteerRole);
-                break;
-        }
+        newRoles.add(new UserRoles(newuser, roleService.findByName("user")));
+
         newuser.setRoles(newRoles);
 
         newuser = userService.save(newuser);
