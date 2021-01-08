@@ -7,10 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -44,5 +41,12 @@ public class RecipeController {
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.OK);
     }
 
+    @DeleteMapping(value = "/recipe/{recipeid}")
+    public ResponseEntity<?> deleteRecipe(@PathVariable long recipeid) {
+
+        recipeService.delete(recipeid);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
 
