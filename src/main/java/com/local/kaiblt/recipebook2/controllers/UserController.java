@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/users")
     public ResponseEntity<?> getAllUsers() {
         List<User> userList = userService.findAll();
 
