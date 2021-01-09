@@ -24,6 +24,8 @@ public class Recipe {
     @NotNull
     private String type;
 
+    private String imageURL;
+
     //ManyToOne - > Recipe
     @ManyToOne
     @NotNull
@@ -47,9 +49,10 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String type, User user) {
+    public Recipe(String name, String type, String imageURL, User user) {
         this.name = name;
         this.type = type;
+        this.imageURL = imageURL;
         this.user = user;
     }
 
@@ -100,5 +103,13 @@ public class Recipe {
 
     public void setSteps(List<Step> steps) {
         this.steps = steps;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }

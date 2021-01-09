@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 
         newUser.getRecipes().clear();
         for (Recipe r : user.getRecipes()) {
-            Recipe r1 = new Recipe(r.getName(), r.getType(), newUser);
+            Recipe r1 = new Recipe(r.getName(), r.getType(), r.getImageURL(), newUser);
 
             //Add all ingredients to the recipe
             for (Ingredient i : r.getIngredients()) {

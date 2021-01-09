@@ -40,7 +40,7 @@ public class SeedData implements CommandLineRunner {
         User u1 = new User("admin", "password", "admin@admin.com");
         u1.getRoles().add(new UserRoles(u1, r1));
 
-        Recipe recipe = new Recipe("Recipe Name", "Main", u1);
+        Recipe recipe = new Recipe("Recipe Name", "Main", "", u1);
 
         Ingredient ingredient1 = new Ingredient("Onion", 1, "Lb", recipe);
         Ingredient ingredient2 = new Ingredient("Tomato", 2, "Lb", recipe);
