@@ -52,7 +52,7 @@ public class RecipeServiceImpl implements RecipeService{
 
         //Add all ingredients to the recipe
         for (Ingredient i : recipe.getIngredients()) {
-            newRecipe.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), newRecipe));
+            newRecipe.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), i.getIngredientgroup(), newRecipe));
         }
 
         //Add all steps to the recipe
@@ -76,7 +76,7 @@ public class RecipeServiceImpl implements RecipeService{
 
             //Add all ingredients to the recipe
             for (Ingredient i : recipe.getIngredients()) {
-                updatedRecipe.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), updatedRecipe));
+                updatedRecipe.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), i.getIngredientgroup(), updatedRecipe));
             }
 
             //Add all steps to the recipe

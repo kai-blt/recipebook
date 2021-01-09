@@ -42,11 +42,11 @@ public class SeedData implements CommandLineRunner {
 
         Recipe recipe = new Recipe("Recipe Name", "Main", "", u1);
 
-        Ingredient ingredient1 = new Ingredient("Onion", 1, "Lb", recipe);
-        Ingredient ingredient2 = new Ingredient("Tomato", 2, "Lb", recipe);
-        Ingredient ingredient3 = new Ingredient("Carrot", 3, "Lb", recipe);
-        Ingredient ingredient4 = new Ingredient("Ginger", 4, "Lb", recipe);
-        Ingredient ingredient5 = new Ingredient("Egg", 5, "Lb", recipe);
+        Ingredient ingredient1 = new Ingredient("Onion", 1, "Lb", "Ing", recipe);
+        Ingredient ingredient2 = new Ingredient("Tomato", 2, "Lb", "Ing", recipe);
+        Ingredient ingredient3 = new Ingredient("Carrot", 3, "Lb", "Ing", recipe);
+        Ingredient ingredient4 = new Ingredient("Ginger", 4, "Lb", "Ing", recipe);
+        Ingredient ingredient5 = new Ingredient("Egg", 5, "Lb", "Ing", recipe);
         Step step1 = new Step(1, "Cook it lightly until golden brown", recipe);
         Step step2 = new Step(2, "Put it in the pot and then churn", recipe);
         Step step3 = new Step(3, "Lightly baste the mouth watering taste", recipe);

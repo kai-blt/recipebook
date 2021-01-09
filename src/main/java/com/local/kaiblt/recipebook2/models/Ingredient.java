@@ -23,6 +23,8 @@ public class Ingredient {
     @NotNull
     private String measurement;
 
+    private String ingredientgroup;
+
     @ManyToOne
     @NotNull
     @JoinColumn(name = "recipeid")
@@ -34,10 +36,11 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String name, long quantity, String measurement, Recipe recipe) {
+    public Ingredient(String name, long quantity, String measurement, String ingredientgroup, Recipe recipe) {
         this.name = name;
         this.quantity = quantity;
         this.measurement = measurement;
+        this.ingredientgroup = ingredientgroup;
         this.recipe = recipe;
     }
 
@@ -80,5 +83,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public String getIngredientgroup() {
+        return ingredientgroup;
+    }
+
+    public void setIngredientgroup(String ingredientgroup) {
+        this.ingredientgroup = ingredientgroup;
     }
 }

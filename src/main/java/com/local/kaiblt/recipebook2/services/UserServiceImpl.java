@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
 
             //Add all ingredients to the recipe
             for (Ingredient i : r.getIngredients()) {
-                r1.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), r1));
+                r1.getIngredients().add(new Ingredient(i.getName(), i.getQuantity(), i.getMeasurement(), i.getIngredientgroup(), r1));
             }
 
             //Add all steps to the recipe
