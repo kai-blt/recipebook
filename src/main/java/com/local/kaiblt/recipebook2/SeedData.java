@@ -55,11 +55,9 @@ public class SeedData implements CommandLineRunner {
         recipe.getIngredients().add(ingredient2);
         recipe.getIngredients().add(ingredient3);
         recipe.getIngredients().add(ingredient4);
-        recipe.getIngredients().add(ingredient5);
 
         recipe.getSteps().add(step1);
         recipe.getSteps().add(step2);
-        recipe.getSteps().add(step3);
         recipe.getSteps().add(step4);
 
         u1.getRecipes().add(recipe);
