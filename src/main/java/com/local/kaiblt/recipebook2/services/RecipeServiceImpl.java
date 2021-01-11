@@ -48,6 +48,7 @@ public class RecipeServiceImpl implements RecipeService{
 
         newRecipe.setName(recipe.getName());
         newRecipe.setType(recipe.getType());
+        newRecipe.setImageURL(recipe.getImageURL());
         newRecipe.setUser(userService.findByUsername(recipe.getUser().getUsername()));
 
         //Add all ingredients to the recipe
@@ -71,6 +72,7 @@ public class RecipeServiceImpl implements RecipeService{
 
             updatedRecipe.setName(recipe.getName());
             updatedRecipe.setType(recipe.getType());
+            updatedRecipe.setImageURL(recipe.getImageURL());
             updatedRecipe.setUser(userService.findByUsername(recipe.getUser().getUsername()));
             updatedRecipe.setRecipeid(id);
 
