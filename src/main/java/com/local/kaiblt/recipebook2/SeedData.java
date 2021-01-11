@@ -41,17 +41,15 @@ public class SeedData implements CommandLineRunner {
         u1.getRoles().add(new UserRoles(u1, r1));
 
         //Setup Recipe1
-        Recipe recipe = new Recipe("Super Soup", "Main", "https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1352&q=80", u1);
+        Recipe recipe = new Recipe("Example Paella", "Main", "https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1352&q=80", u1);
 
-        Ingredient ingredient1 = new Ingredient("Onion", 1, "Lb", "Ing", recipe);
-        Ingredient ingredient2 = new Ingredient("Tomato", 2, "Lb", "Ing", recipe);
-        Ingredient ingredient3 = new Ingredient("Carrot", 3, "Lb", "Ing", recipe);
-        Ingredient ingredient4 = new Ingredient("Ginger", 4, "Lb", "Ing", recipe);
-        Ingredient ingredient5 = new Ingredient("Egg", 5, "Lb", "Ing", recipe);
-        Step step1 = new Step(1, "Cook it lightly until golden brown", recipe);
-        Step step2 = new Step(2, "Put it in the pot and then churn", recipe);
-        Step step3 = new Step(3, "Lightly baste the mouth watering taste", recipe);
-        Step step4 = new Step(4, "Eat it", recipe);
+        Ingredient ingredient1 = new Ingredient("Onion", 1, "Diced", "Ing", recipe);
+        Ingredient ingredient2 = new Ingredient("Bell Pepper", 1, "Diced", "Ing", recipe);
+        Ingredient ingredient3 = new Ingredient("Garlic", 4, "Cloves", "Ing", recipe);
+        Ingredient ingredient4 = new Ingredient("Tomatoes", 3, "Finely Diced", "Ing", recipe);
+        Step step1 = new Step(1, "Add all ingredients", recipe);
+        Step step2 = new Step(2, "Cook until golden", recipe);
+        Step step4 = new Step(4, "Enjoy", recipe);
 
         recipe.getIngredients().add(ingredient1);
         recipe.getIngredients().add(ingredient2);
@@ -70,9 +68,9 @@ public class SeedData implements CommandLineRunner {
         Recipe recipe2 = new Recipe("Ultimate Salad", "Main", "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", u1);
 
         Ingredient i1 = new Ingredient("Kale", 1, "Lb", "Ing", recipe2);
-        Ingredient i2 = new Ingredient("Tomato", 2, "Lb", "Ing", recipe2);
+        Ingredient i2 = new Ingredient("Tomato", 1, "Lb", "Ing", recipe2);
         Step s1 = new Step(1, "Massage Kale", recipe2);
-        Step s2 = new Step(2, "Eat it", recipe2);
+        Step s2 = new Step(2, "Enjoy", recipe2);
 
         recipe2.getIngredients().add(i1);
         recipe2.getIngredients().add(i2);
