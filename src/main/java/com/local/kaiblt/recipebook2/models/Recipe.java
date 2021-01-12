@@ -18,7 +18,6 @@ public class Recipe {
 
     //--------Recipe Fields--------
     @NotNull
-    @Column(unique = true)
     private String name;
 
     @NotNull

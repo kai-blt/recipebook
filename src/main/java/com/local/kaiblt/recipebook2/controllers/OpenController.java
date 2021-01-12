@@ -1,8 +1,7 @@
 package com.local.kaiblt.recipebook2.controllers;
 
-import com.local.kaiblt.recipebook2.models.User;
-import com.local.kaiblt.recipebook2.models.UserMinimum;
-import com.local.kaiblt.recipebook2.models.UserRoles;
+import com.local.kaiblt.recipebook2.models.*;
+import com.local.kaiblt.recipebook2.services.RecipeService;
 import com.local.kaiblt.recipebook2.services.RoleService;
 import com.local.kaiblt.recipebook2.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +34,9 @@ public class OpenController
      */
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private RecipeService recipeService;
 
     /**
      * A method in this controller adds a new user to the application with the role User so needs access to Role Services to do this.
@@ -76,7 +78,50 @@ public class OpenController
 
         newuser.setRoles(newRoles);
 
+        List<Recipe> recipeList = new ArrayList<>();
+
+        /////////////////
+        //Setup Recipe1
+        Recipe recipe = new Recipe("Example Paella", "Main", "https://images.unsplash.com/photo-1512058564366-18510be2db19?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1352&q=80", newuser);
+
+        Ingredient ingredient1 = new Ingredient("Onion", 1, "Diced", "Ing", recipe);
+        Ingredient ingredient2 = new Ingredient("Bell Pepper", 1, "Diced", "Ing", recipe);
+        Ingredient ingredient3 = new Ingredient("Garlic", 4, "Cloves", "Ing", recipe);
+        Ingredient ingredient4 = new Ingredient("Tomatoes", 3, "Finely Diced", "Ing", recipe);
+        Step step1 = new Step(1, "Add all ingredients", recipe);
+        Step step2 = new Step(2, "Cook until golden", recipe);
+        Step step3 = new Step(3, "Enjoy", recipe);
+
+        recipe.getIngredients().add(ingredient1);
+        recipe.getIngredients().add(ingredient2);
+        recipe.getIngredients().add(ingredient3);
+        recipe.getIngredients().add(ingredient4);
+
+        recipe.getSteps().add(step1);
+        recipe.getSteps().add(step2);
+        recipe.getSteps().add(step3);
+
+        newuser.getRecipes().add(recipe);
+
+
+        //Setup Recipe2
+        Recipe recipe2 = new Recipe("Ultimate Salad", "Main", "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80", newuser);
+
+        Ingredient i1 = new Ingredient("Kale", 1, "Lb", "Ing", recipe2);
+        Ingredient i2 = new Ingredient("Tomato", 1, "Lb", "Ing", recipe2);
+        Step s1 = new Step(1, "Massage Kale", recipe2);
+        Step s2 = new Step(2, "Enjoy", recipe2);
+
+        recipe2.getIngredients().add(i1);
+        recipe2.getIngredients().add(i2);
+        recipe2.getSteps().add(s1);
+        recipe2.getSteps().add(s2);
+
+        newuser.getRecipes().add(recipe2);
+
         newuser = userService.save(newuser);
+
+
 
         // set the location header for the newly created resource
         // The location comes from a different controller!
