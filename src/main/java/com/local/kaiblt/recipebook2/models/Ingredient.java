@@ -17,10 +17,8 @@ public class Ingredient {
     @NotNull
     private String name;
 
-    @NotNull
-    private long quantity;
+    private String quantity;
 
-    @NotNull
     private String measurement;
 
     private String ingredientgroup;
@@ -36,7 +34,7 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String name, long quantity, String measurement, String ingredientgroup, Recipe recipe) {
+    public Ingredient(String name, String quantity, String measurement, String ingredientgroup, Recipe recipe) {
         this.name = name;
         this.quantity = quantity;
         this.measurement = measurement;
@@ -61,11 +59,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public long getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
