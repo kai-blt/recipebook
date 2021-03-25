@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "steps")
@@ -18,6 +19,8 @@ public class Step {
     private long stepnumber;
 
     @NotNull
+    @Column(length = 1500)
+    @Size(min = 1, max = 1500)
     private String instructions;
 
     @ManyToOne
