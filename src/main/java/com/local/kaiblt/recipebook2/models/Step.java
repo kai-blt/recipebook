@@ -19,8 +19,7 @@ public class Step {
     private long stepnumber;
 
     @NotNull
-    @Column(length = 1500)
-    @Size(min = 1, max = 1500)
+    @Size(max=2000)
     private String instructions;
 
     @ManyToOne
